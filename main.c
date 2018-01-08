@@ -5,7 +5,10 @@ int main()
  	FILE *archivo;
  	char caracteres[100];
 	char *cadena;
- 	archivo = fopen("prueba.txt","a+");
+	char nombre[100];
+	printf("Ingrese el nombre del archivo que desea modificar: ");
+	fgets(nombre,100,stdin);
+ 	archivo = fopen(nombre,"a+");
  	if (archivo == NULL){
 	 exit(1);
 }
@@ -20,7 +23,7 @@ int main()
 		//printf("\nIngrese los caracteres que desea agregar al final del archivo: ");
 		//scanf("%s", cadena);
 		
-		fputs("Agregamos algo.",archivo);
+		fputs("/nAgregamos algo.",archivo);
 	//system("PAUSE");
 	}
 	fclose(archivo);
