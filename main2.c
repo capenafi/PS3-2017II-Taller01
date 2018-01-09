@@ -5,18 +5,15 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int main()
+int main(int argc,char *argv[],char **envp)
 {
 	int fd;
-	//printf("Ingrese el nombre del archivo que desea modificar: ");
-	//fgets(nombre,100,stdin);
- 	fd=open("prueba.txt",O_RDWR|O_APPEND|O_CREAT,S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH);
+ 	fd=open(argv[1],O_RDWR|O_APPEND|O_CREAT,S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH);
  	if (fd == -1){
 	 exit(1);
 	}else{
-		int error;
-		printf("El descriptor del archivo es: %i \n",fd);
-		error=write(fd,"Carlos Penafiel\n",50);
+		printf("El descriptor del archivo es: %d \n",fd);
+		write(fd,"\nCarlos Penafiel",20);
 	}
 	close(fd);
 }
